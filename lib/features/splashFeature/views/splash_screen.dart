@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../main.dart';
+import '../../../custom_bottom_navigation_bar.dart';
 
 class SplashScreen extends StatefulWidget {
   static const routeNamed = 'SplashScreen';
@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen>
     _controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 3));
     // Define the fade animation
-    _fadeAnimation = Tween<double>(begin: 0, end: 1.0)
+    _fadeAnimation = Tween<double>(begin: 0.5, end: 1.0)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
 
     // Define the scale animation
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Navigate to the next screen after the animation is done
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Navigator.pushReplacementNamed(context, HomePage.routeNamed);
+        Navigator.pushReplacementNamed(context, CustomBottomNavigationBar.routeNamed);
       }
     });
 
