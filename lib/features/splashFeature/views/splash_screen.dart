@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../custom_bottom_navigation_bar.dart';
+import '../../bottomNavBarFeatures/views/custom_bottom_navigation_bar.dart';
 
 class SplashScreen extends StatefulWidget {
   static const routeNamed = 'SplashScreen';

@@ -3,7 +3,7 @@ import 'package:awrad/features/splashfeature/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'custom_bottom_navigation_bar.dart';
+import 'features/bottomNavBarFeatures/views/custom_bottom_navigation_bar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
