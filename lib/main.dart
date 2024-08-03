@@ -1,3 +1,5 @@
+import 'package:awrad/core/utils/app_styles.dart';
+import 'package:awrad/features/splashfeature/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,14 +21,20 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.white
         )
       ),
-      home: const MyHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/' : (context)=> const SplashScreen(),
+        HomePage.routeNamed : (context)=> const HomePage(),
+      },
+      //home: const HomePage(),
     );
   }
 }
 
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatelessWidget {
+  static const routeNamed = 'HomePage';
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +43,8 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Awrad'),
         centerTitle: true,
       ),
-      body: const Center(child: Text('Awrad')),
+      body: Center(child: Text('Home Page',style: AppStyles.regular13(context),)),
+
     );
   }
 }
