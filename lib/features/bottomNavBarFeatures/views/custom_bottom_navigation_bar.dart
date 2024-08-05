@@ -2,10 +2,11 @@ import 'package:awrad/compass_view.dart';
 import 'package:awrad/core/utils/app_styles.dart';
 import 'package:awrad/favourite_view.dart';
 import 'package:awrad/features/bottomNavBarFeatures/views/widgets/custom_bottom_app_bar.dart';
-import 'package:awrad/main.dart';
 import 'package:awrad/morning_dhikrs_view.dart';
 import 'package:awrad/night_dhikrs_view.dart';
 import 'package:flutter/material.dart';
+
+import '../../homeFeatures/views/home_page_view.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   static const String routeNamed = 'CustomBottomNavigationBar';
@@ -37,6 +38,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       appBar: selectedIndex == 2 ? null : AppBar(
         title: Text(pages[selectedIndex]['title']),
       ),

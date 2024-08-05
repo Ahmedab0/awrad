@@ -1,5 +1,4 @@
 import 'package:awrad/compass_view.dart';
-import 'package:awrad/core/utils/app_styles.dart';
 import 'package:awrad/favourite_view.dart';
 import 'package:awrad/features/splashfeature/views/splash_screen.dart';
 import 'package:awrad/night_dhikrs_view.dart';
@@ -7,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'features/bottomNavBarFeatures/views/custom_bottom_navigation_bar.dart';
+import 'features/homeFeatures/views/home_page_view.dart';
 import 'morning_dhikrs_view.dart';
 
 void main() {
@@ -48,14 +48,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-class HomePage extends StatelessWidget {
-  static const routeNamed = 'HomePage';
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Home Page',style: AppStyles.regular13(context),));
-
-  }
-}
