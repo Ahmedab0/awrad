@@ -5,6 +5,6 @@ class NavBarItemModel {
   final IconData? icon;
   final String label;
 
-  NavBarItemModel({required this.icon, required this.label});
+  const NavBarItemModel({required this.icon, required this.label});
 
 }

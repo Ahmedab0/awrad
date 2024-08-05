@@ -1,9 +1,13 @@
+import 'package:awrad/compass_view.dart';
 import 'package:awrad/core/utils/app_styles.dart';
+import 'package:awrad/favourite_view.dart';
 import 'package:awrad/features/splashfeature/views/splash_screen.dart';
+import 'package:awrad/night_dhikrs_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'features/bottomNavBarFeatures/views/custom_bottom_navigation_bar.dart';
+import 'morning_dhikrs_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +38,10 @@ class MyApp extends StatelessWidget {
         '/' : (context)=> const SplashScreen(),
         CustomBottomNavigationBar.routeNamed : (context)=> const CustomBottomNavigationBar(),
         HomePage.routeNamed : (context)=> const HomePage(),
+        NightDhikrsView.routeNamed : (context)=> const NightDhikrsView(),
+        MorningDhikrsView.routeNamed : (context)=> const MorningDhikrsView(),
+        FavouriteView.routeNamed : (context)=> const FavouriteView(),
+        CompassView.routeNamed : (context)=> const CompassView(),
       },
       //home: const HomePage(),
     );
@@ -47,13 +55,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Awrad'),
-        centerTitle: true,
-      ),
-      body: Center(child: Text('Home Page',style: AppStyles.regular13(context),)),
+    return Center(child: Text('Home Page',style: AppStyles.regular13(context),));
 
-    );
   }
 }
