@@ -1,18 +1,38 @@
 
+import 'package:awrad/features/homeFeatures/views/widgets/dhikr_details_view.dart';
 import 'package:awrad/features/homeFeatures/views/widgets/dhikr_item.dart';
 import 'package:flutter/material.dart';
+
+import '../../models/dhikr_Model.dart';
 
 class HomeListView extends StatelessWidget {
   const HomeListView({super.key});
 
+
+  final List<DhikrModel> dhikrs = const [
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr6.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr7.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr8.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr9.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr10.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr1.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr2.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr3.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr4.png'),
+    DhikrModel(title: 'ورد الاستغفار', description: 'ليس كثيرا علي الله ان يغفر لك', imgUrl: 'assets/images/dhikrsImg/dhikr5.png'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: EdgeInsets.zero,
       physics: const BouncingScrollPhysics(),
-      itemCount: 5,
-      itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.only(bottom: 8.0),
-        child: DhikrItem(),//Container(height: 200,color: Colors.red,),
+      itemCount: dhikrs.length,
+      itemBuilder: (context, index) => GestureDetector(
+        onTap: () => Navigator.pushReplacementNamed(context, DhikrDetailsView.routeNamed,arguments: dhikrs[index]),
+        child: SizedBox(
+            height: 87,
+            child: DhikrItem(dhikrModel: dhikrs[index],)),
       ),
     );
   }

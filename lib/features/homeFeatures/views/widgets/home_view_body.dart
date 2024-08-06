@@ -11,7 +11,7 @@ class HomeViewBody extends StatelessWidget {
     return const Column(
       children: [
         HomeCover(),
-        SizedBox(height: 24),
+        SizedBox(height: 16),
         Expanded(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.0),

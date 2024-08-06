@@ -82,4 +82,14 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/dhikrsImg/dhikr1.png
+    - assets/images/dhikrsImg/dhikr2.png
+    - assets/images/dhikrsImg/dhikr3.png
+    - assets/images/dhikrsImg/dhikr4.png
+    - assets/images/dhikrsImg/dhikr5.png
+    - assets/images/dhikrsImg/dhikr6.png
+    - assets/images/dhikrsImg/dhikr7.png
+    - assets/images/dhikrsImg/dhikr8.png
+    - assets/images/dhikrsImg/dhikr9.png
+    - assets/images/dhikrsImg/dhikr10.png
 
