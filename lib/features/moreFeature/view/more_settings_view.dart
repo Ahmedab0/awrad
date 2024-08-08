@@ -1,4 +1,5 @@
 import 'package:awrad/core/utils/app_styles.dart';
+import 'package:awrad/features/moreFeature/view/widgets/more_settings_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/customWidgets/circle_arrow_back.dart';
@@ -33,7 +34,11 @@ class MoreSettings extends StatelessWidget {
             style: AppStyles.bold14(context).copyWith(color: Colors.white),
           ),
         ),
+        body: const MoreSettingsBody(),
       ),
     );
   }
 }
+
+
+

@@ -7,7 +7,8 @@ import 'package:flutter/services.dart';
 
 import 'features/bottomNavBarFeatures/views/custom_bottom_navigation_bar.dart';
 import 'features/homeFeatures/views/home_page_view.dart';
-import 'features/homeFeatures/views/more_settings.dart';
+import 'features/moreFeature/view/app_info_details_view.dart';
+import 'features/moreFeature/view/more_settings_view.dart';
 import 'features/homeFeatures/views/widgets/dhikr_details_view.dart';
 import 'morning_dhikrs_view.dart';
 
@@ -46,8 +47,8 @@ class MyApp extends StatelessWidget {
         CompassView.routeNamed : (context)=> const CompassView(),
         MoreSettings.routeNamed : (context)=> const MoreSettings(),
         DhikrDetailsView.routeNamed : (context)=> const DhikrDetailsView(),
+        AppInfoDetailsView.routeNamed : (context)=> const AppInfoDetailsView(),
       },
-      //home: const HomePage(),
     );
   }
 }

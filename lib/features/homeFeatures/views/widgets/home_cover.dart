@@ -1,4 +1,4 @@
-import 'package:awrad/features/homeFeatures/views/more_settings.dart';
+import 'package:awrad/features/moreFeature/view/more_settings_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeCover extends StatelessWidget {

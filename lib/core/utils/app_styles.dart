@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 
-//Color darkRedClr = const Color(0xffB40000);
-
 abstract class AppStyles {
 
   static Color primaryClr = const Color(0xff13A090);
