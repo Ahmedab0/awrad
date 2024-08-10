@@ -2,8 +2,8 @@ import 'package:awrad/compass_view.dart';
 import 'package:awrad/core/utils/app_styles.dart';
 import 'package:awrad/favourite_view.dart';
 import 'package:awrad/features/bottomNavBarFeatures/views/widgets/custom_bottom_app_bar.dart';
-import 'package:awrad/morning_dhikrs_view.dart';
-import 'package:awrad/night_dhikrs_view.dart';
+import 'package:awrad/features/homeFeatures/views/morning_dhikrs_view.dart';
+import 'package:awrad/features/homeFeatures/views/night_dhikrs_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../homeFeatures/views/home_page_view.dart';
@@ -22,11 +22,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int selectedIndex = 2;
 
   List<Map<String, dynamic>> pages = [
-    {'title': 'Night Dhikrs', 'page': const NightDhikrsView()},
-    {'title': 'Morning Dhikrs', 'page': const MorningDhikrsView()},
+    {'title': 'أذكار المساء', 'page': const NightDhikrsView()},
+    {'title': 'أذكار الصباح', 'page': const MorningDhikrsView()},
     {'page': const HomePage()},
-    {'title': 'Favourite', 'page': const FavouriteView()},
-    {'title': 'Compass ', 'page': const CompassView()},
+    {'title': 'المفضلة', 'page': const FavouriteView()},
+    {'title': 'القبلة ', 'page': const CompassView()},
   ];
 
   void _onItemTapped(int index) {
@@ -40,7 +40,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Scaffold(
       extendBody: true,
       appBar: selectedIndex == 2 ? null : AppBar(
-        title: Text(pages[selectedIndex]['title']),
+        title: Text(pages[selectedIndex]['title'],style: AppStyles.bold14(context).copyWith(color: Colors.white),),
+        centerTitle: true,
       ),
       body: pages[selectedIndex]['page'],
       bottomNavigationBar: CustomBottomAppBar(

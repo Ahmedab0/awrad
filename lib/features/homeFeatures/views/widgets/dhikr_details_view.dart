@@ -45,7 +45,7 @@ class DhikrDetailsView extends StatelessWidget {
           ),
           body: const Padding(
             padding: EdgeInsets.all(12.0),
-            child: DhikrDetailsListView(),
+            child: DhikrDetailsListView(clr: Color(0xffF22323),),
           )),
     );
   }
