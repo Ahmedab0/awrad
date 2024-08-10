@@ -40,6 +40,16 @@ abstract class AppStyles {
     );
   }
 
+  /// regular19
+  static TextStyle regular19(BuildContext context) {
+    return TextStyle(
+      color: blackClr,
+      fontSize: getResponsiveFontSize(context, baseFontSize: 19),
+      fontFamily: 'NotoKufiArabic',
+      fontWeight: FontWeight.w400,
+    );
+  }
+
   /// bold10
   static TextStyle bold10(BuildContext context) {
     return TextStyle(
@@ -80,15 +90,36 @@ abstract class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+
+  // Traditional-arabic
   /// medium21
-  static TextStyle poppinsMedium21(BuildContext context) {
+  static TextStyle traditionalMedium21(BuildContext context) {
     return TextStyle(
       color: const Color(0xffF22323),
       fontSize: getResponsiveFontSize(context, baseFontSize: 21),
-      fontFamily: 'Poppins',
+      fontFamily: 'Traditional-Arabic',
       fontWeight: FontWeight.w500,
     );
   }
+  /// traditionalRegular19
+  static TextStyle traditionalRegular19(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xff000000),
+      fontSize: getResponsiveFontSize(context, baseFontSize: 19),
+      fontFamily: 'Traditional-Arabic',
+      fontWeight: FontWeight.w400,
+    );
+  }
+  /// medium12
+  static TextStyle traditionalMedium12(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xff787878),
+      fontSize: getResponsiveFontSize(context, baseFontSize: 12),
+      fontFamily: 'Traditional-Arabic',
+      fontWeight: FontWeight.w500,
+    );
+  }
+
   /// medium19
   static TextStyle poppinsMedium19(BuildContext context) {
     return TextStyle(

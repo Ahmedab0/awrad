@@ -12,6 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # share_plus: ^10.0.1
+
+
 
 
 
@@ -41,23 +44,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-
   fonts:
     - family: NotoKufiArabic
       fonts:
@@ -78,6 +64,14 @@ flutter:
         - asset: assets/fonts/Alexandria-Bold.ttf
           weight: 700
         - asset: assets/fonts/Alexandria-Regular.ttf
+          weight: 400
+    - family: Traditional-Arabic
+      fonts:
+        - asset: assets/fonts/Traditional-Arabic.ttf
+          weight: 700
+        - asset: assets/fonts/Traditional-Arabic.ttf
+          weight: 500
+        - asset: assets/fonts/Traditional-Arabic.ttf
           weight: 400
 
   assets:
