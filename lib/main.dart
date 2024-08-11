@@ -1,5 +1,5 @@
-import 'package:awrad/compass_view.dart';
-import 'package:awrad/favourite_view.dart';
+import 'package:awrad/features/homeFeatures/views/compass_view.dart';
+import 'package:awrad/features/homeFeatures/views/favourite_view.dart';
 import 'package:awrad/features/splashfeature/views/splash_screen.dart';
 import 'package:awrad/features/homeFeatures/views/night_dhikrs_view.dart';
 import 'package:flutter/material.dart';

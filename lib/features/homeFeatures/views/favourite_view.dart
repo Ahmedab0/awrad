@@ -1,12 +1,15 @@
 
+
 import 'package:awrad/features/homeFeatures/views/widgets/dhikr_details_view.dart';
 import 'package:awrad/features/homeFeatures/views/widgets/dhikr_item.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/dhikr_Model.dart';
+import '../models/dhikr_Model.dart';
 
-class HomeListView extends StatelessWidget {
-  const HomeListView({super.key});
+class FavouriteView extends StatelessWidget {
+  static const String routeNamed = 'FavouriteView';
+  const FavouriteView({super.key});
+
 
 
   final List<DhikrModel> dhikrs = const [
@@ -24,15 +27,18 @@ class HomeListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.zero,
-      physics: const BouncingScrollPhysics(),
-      itemCount: dhikrs.length,
-      itemBuilder: (context, index) => GestureDetector(
-        onTap: () => Navigator.pushReplacementNamed(context, DhikrDetailsView.routeNamed,arguments: dhikrs[index]),
-        child: SizedBox(
-            height: 87,
-            child: DhikrItem(dhikrModel: dhikrs[index], isFavourite: false,)),
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        physics: const BouncingScrollPhysics(),
+        itemCount: dhikrs.length,
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () => Navigator.pushReplacementNamed(context, DhikrDetailsView.routeNamed,arguments: dhikrs[index]),
+          child: SizedBox(
+              height: 87,
+              child: DhikrItem(dhikrModel: dhikrs[index], isFavourite: true,)),
+        ),
       ),
     );
   }

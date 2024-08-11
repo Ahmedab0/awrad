@@ -6,7 +6,7 @@ import 'dhikr_details_item.dart';
 class DhikrDetailsListView extends StatelessWidget {
   const DhikrDetailsListView({super.key, required this.clr});
 
-  final Color clr ;
+  final Color clr;
 
   final List<DhikrDetailsItemModel> items = const [
     DhikrDetailsItemModel(
@@ -70,7 +70,7 @@ class DhikrDetailsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
-      itemCount: 15,
+      itemCount: items.length,
       itemBuilder: (context, index) => DhikrDetailsItem(
         dhikrDetailsItemModel: items[index],
         index: index,

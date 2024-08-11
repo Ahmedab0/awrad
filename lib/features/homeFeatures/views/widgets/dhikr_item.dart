@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/customWidgets/circle_arrow_back.dart';
 
 class DhikrItem extends StatelessWidget {
-  const DhikrItem({super.key, required this.dhikrModel});
+  const DhikrItem({super.key, required this.dhikrModel, required this.isFavourite});
 
   final DhikrModel dhikrModel;
+  final bool isFavourite;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,7 @@ class DhikrItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Row(
+          crossAxisAlignment: isFavourite? CrossAxisAlignment.start : CrossAxisAlignment.center,
           children: [
             // image
             GestureDetector(
@@ -62,7 +64,7 @@ class DhikrItem extends StatelessWidget {
               ),
             ),
             // arrow icon
-            const CircleArrowBack(clr: Color(0xff838BA5), iconSize: 12,),
+            isFavourite? Icon(Icons.favorite,color: AppStyles.darkRedClr,): const CircleArrowBack(clr: Color(0xff838BA5), iconSize: 12,),
           ],
         ),
       ),

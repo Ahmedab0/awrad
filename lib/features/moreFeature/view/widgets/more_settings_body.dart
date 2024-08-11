@@ -26,7 +26,21 @@ class MoreSettingsBody extends StatelessWidget {
             ),
           ),
         ),
-
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: AspectRatio(
+            aspectRatio: 350 / 191,
+            child: Container(
+              height: 191,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: ExactAssetImage('assets/images/moreVector.png'),
+                ),
+              ),
+            ),
+          ),
+        ),
         SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
@@ -89,24 +103,6 @@ class MoreSettingsBody extends StatelessWidget {
             ],
           ),
         ),
-
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: AspectRatio(
-            aspectRatio: 350 / 191,
-            child: Container(
-              height: 191,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: ExactAssetImage('assets/images/moreVector.png'),
-                ),
-              ),
-            ),
-          ),
-        ),
-
-        //Image
       ],
     );
   }

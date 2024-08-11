@@ -1,6 +1,6 @@
-import 'package:awrad/compass_view.dart';
+import 'package:awrad/features/homeFeatures/views/compass_view.dart';
 import 'package:awrad/core/utils/app_styles.dart';
-import 'package:awrad/favourite_view.dart';
+import 'package:awrad/features/homeFeatures/views/favourite_view.dart';
 import 'package:awrad/features/bottomNavBarFeatures/views/widgets/custom_bottom_app_bar.dart';
 import 'package:awrad/features/homeFeatures/views/morning_dhikrs_view.dart';
 import 'package:awrad/features/homeFeatures/views/night_dhikrs_view.dart';
@@ -37,28 +37,39 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      appBar: selectedIndex == 2 ? null : AppBar(
-        title: Text(pages[selectedIndex]['title'],style: AppStyles.bold14(context).copyWith(color: Colors.white),),
-        centerTitle: true,
-      ),
-      body: pages[selectedIndex]['page'],
-      bottomNavigationBar: CustomBottomAppBar(
-        selectedItem: selectedIndex,
-        onItemTapped: _onItemTapped,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        width: 64,
-        height: 64,
-        decoration:
-            BoxDecoration(shape: BoxShape.circle, color: AppStyles.primaryClr),
-        child: InkWell(
-          onTap: ()=> _onItemTapped(2),
-          child: const Icon(
-            Icons.home,
-            color: Colors.white,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        extendBody: true,
+        appBar:
+        selectedIndex == 2 ? null : selectedIndex == 0 || selectedIndex == 1 ? AppBar(
+          title: Text(pages[selectedIndex]['title'],style: AppStyles.bold14(context).copyWith(color: Colors.white),),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.favorite_border),
+          ),
+        ) : AppBar(
+          title: Text(pages[selectedIndex]['title'],style: AppStyles.bold14(context).copyWith(color: Colors.white),),
+          centerTitle: true,
+        ),
+        body: pages[selectedIndex]['page'],
+        bottomNavigationBar: CustomBottomAppBar(
+          selectedItem: selectedIndex,
+          onItemTapped: _onItemTapped,
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Container(
+          width: 64,
+          height: 64,
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: AppStyles.primaryClr),
+          child: InkWell(
+            onTap: ()=> _onItemTapped(2),
+            child: const Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
           ),
         ),
       ),

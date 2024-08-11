@@ -18,7 +18,7 @@ class CustomBottomAppBar extends StatelessWidget {
     NavBarItemModel(icon: Icons.wb_sunny, label: 'أذكار الصباح'),
     NavBarItemModel(icon: null, label: 'الرئيسية'),
     NavBarItemModel(icon: Icons.favorite, label: 'المفضلة'),
-    NavBarItemModel(icon: Icons.compass_calibration_outlined, label: 'اتجاة القبلة'),
+    NavBarItemModel(icon: Icons.compass_calibration_rounded, label: 'القبلة'),
   ];
 
   @override
