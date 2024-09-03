@@ -12,7 +12,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # share_plus: ^10.0.1
+
+
+
 
 
 
@@ -21,6 +23,23 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
+  permission_handler: ^11.3.1
+  flutter_svg: ^2.0.10+1
+  flutter_qiblah: ^3.0.3
+  share_plus: ^10.0.1
+  url_launcher: ^6.3.0
+  dio: ^5.6.0
+  dartz: ^0.10.1
+  flutter_bloc: ^8.1.6
+  cached_network_image: ^3.4.1
+  get_it: ^7.7.0
+  flutter_spinkit: ^5.2.1
+  device_preview: ^1.2.0
+
+
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -93,4 +112,10 @@ flutter:
     - assets/images/frameBg.png
     - assets/images/compass.png
     - assets/images/mosque.png
+    - assets/images/compass.svg
+    - assets/images/needle.svg
+    - assets/images/compass/compass.svg
+    - assets/images/compass/needle.svg
+    - assets/images/noData.png
+    - assets/images/errorImage.png
 

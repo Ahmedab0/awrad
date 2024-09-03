@@ -1,15 +1,26 @@
-import 'dart:developer';
 
 import 'package:awrad/features/moreFeature/view/app_info_details_view.dart';
 import 'package:awrad/features/moreFeature/view/widgets/custom_more_list_tile.dart';
 import 'package:flutter/material.dart';
-//import 'package:share_plus/share_plus.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MoreSettingsBody extends StatelessWidget {
   const MoreSettingsBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    /*
+    void _launchURL(String url) async {
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
+    */
+
     return Stack(
       //alignment: Alignment.topCenter,
       children: [
@@ -17,7 +28,7 @@ class MoreSettingsBody extends StatelessWidget {
         AspectRatio(
           aspectRatio: 115 / 175,
           child: Container(
-            height: 175,
+            height: MediaQuery.sizeOf(context).height * 0.22,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
@@ -72,18 +83,15 @@ class MoreSettingsBody extends StatelessWidget {
               // Share app
               GestureDetector(
                 onTap:
-                    () {
-                  //Share.share('text');
-                  log('App Shared');
-                    } /*async {
-                    String andrUrl = '';
-                    String iOsUrl = '';
-                    final result = await Share.share('check out my website https://example.com');
+                    () async {
+                    //String andrUrl = '';
+                    //String iOsUrl = '';
+                    final result = await Share.share('com.example.awrad');
 
                     if (result.status == ShareResultStatus.success) {
                       print('Thank you for sharing my website!');
                     }
-                  }*/
+                  }
                 ,
                 child: const CustomMoreListTile(
                     title: 'شارك التطبيق', icon: Icons.share_outlined),
@@ -96,7 +104,7 @@ class MoreSettingsBody extends StatelessWidget {
               ),
               // contact us
               GestureDetector(
-                onTap: () {},
+                onTap: (){},//(){_launchURL('tel:+1234567890');},
                 child: const CustomMoreListTile(
                     title: 'تواصل معانا', icon: Icons.call_rounded),
               ),

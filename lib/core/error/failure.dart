@@ -1,5 +1,5 @@
 
-/*
+
 
 import 'package:dio/dio.dart';
 
@@ -33,7 +33,7 @@ class ServerFailure extends Failure {
         return ServerFailure(errorMsg: "No Internet Connection");
       case DioExceptionType.unknown:
       if (dioExc.message!.contains('SocketException')) {
-        return ServerFailure(errorMsg: 'No Internet Connection');
+        return ServerFailure(errorMsg: 'No Internet Connection: SocketException');
       } else {
         return ServerFailure(errorMsg: 'Unexpected Error, Please try again!');
       }
@@ -44,7 +44,7 @@ class ServerFailure extends Failure {
 
   factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(errorMsg: response['error']['message']);
+      return ServerFailure(errorMsg: response['msg']);
     } else if (statusCode == 404) {
       return ServerFailure(errorMsg: 'Your request not found, Please try later!');
     } else if (statusCode == 500) {
@@ -55,4 +55,4 @@ class ServerFailure extends Failure {
   }
 
 }
-*/
+

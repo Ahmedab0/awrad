@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_styles.dart';
-import '../../models/dhikr_details_item_model.dart';
+import '../../data/models/dhikr_details_item_model.dart';
 
 class DhikrDetailsItem extends StatelessWidget {
   const DhikrDetailsItem({super.key, required this.dhikrDetailsItemModel, required this.index, required this.clr});

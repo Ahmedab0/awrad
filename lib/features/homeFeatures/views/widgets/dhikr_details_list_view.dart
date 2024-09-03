@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../models/dhikr_details_item_model.dart';
+import '../../data/models/dhikr_details_item_model.dart';
 import 'dhikr_details_item.dart';
 
 class DhikrDetailsListView extends StatelessWidget {

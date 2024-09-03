@@ -1,12 +1,12 @@
-import 'package:awrad/features/homeFeatures/views/compass_view.dart';
 import 'package:awrad/core/utils/app_styles.dart';
-import 'package:awrad/features/homeFeatures/views/favourite_view.dart';
+import 'package:awrad/features/favouriteFeature/views/favourite_view.dart';
 import 'package:awrad/features/bottomNavBarFeatures/views/widgets/custom_bottom_app_bar.dart';
-import 'package:awrad/features/homeFeatures/views/morning_dhikrs_view.dart';
-import 'package:awrad/features/homeFeatures/views/night_dhikrs_view.dart';
+import 'package:awrad/features/morningDhikrsFeature/views/morning_dhikrs_view.dart';
+import 'package:awrad/features/nightDhikrsFeature/views/night_dhikrs_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../homeFeatures/views/home_page_view.dart';
+import '../../qiplahDirectionFeature/views/qiblah_compass_view.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   static const String routeNamed = 'CustomBottomNavigationBar';
@@ -26,7 +26,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     {'title': 'أذكار الصباح', 'page': const MorningDhikrsView()},
     {'page': const HomePage()},
     {'title': 'المفضلة', 'page': const FavouriteView()},
-    {'title': 'القبلة ', 'page': const CompassView()},
+    {'title': 'القبلة ', 'page': const QiblahCompassView()},
   ];
 
   void _onItemTapped(int index) {

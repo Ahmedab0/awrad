@@ -1,6 +1,6 @@
 
 import 'package:awrad/features/homeFeatures/views/widgets/home_cover.dart';
-import 'package:awrad/features/homeFeatures/views/widgets/home_list_view.dart';
+import 'package:awrad/features/homeFeatures/views/widgets/category_list_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -15,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
         Expanded(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.0),
-            child: HomeListView(),
+            child: CategoryListView(),
           ),
         ),
       ],

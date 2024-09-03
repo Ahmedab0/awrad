@@ -1,9 +1,9 @@
-import 'package:awrad/features/homeFeatures/models/dhikr_Model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/customWidgets/circle_arrow_back.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../bottomNavBarFeatures/views/custom_bottom_navigation_bar.dart';
+import '../../data/models/dhikr_Model.dart';
 import 'dhikr_details_list_view.dart';
 
 class DhikrDetailsView extends StatelessWidget {

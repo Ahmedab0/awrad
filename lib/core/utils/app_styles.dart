@@ -174,7 +174,7 @@ double getScaleFactor(BuildContext context) {
 
   if (width < 800) {
     // Mobile Platform w 400
-    return width / 400;//550
+    return width / 350 ;//550
   } else if (width < 1200) {
     // Tablet Platform w 700
     return width / 1000;
