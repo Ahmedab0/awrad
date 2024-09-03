@@ -14,10 +14,11 @@ class MoreSettingsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     // launch Url Method
     Future<void> _launchUrl(BuildContext context, String url) async {
+      final Uri link = Uri(scheme: 'https', path: url);
       try {
-        await canLaunchUrl(Uri.parse(url))
-            ? await launchUrl(Uri.parse(url))
-            : throw 'Could not launch $url';
+        await canLaunchUrl(link)
+            ? await launchUrl(link)
+            : throw 'Could not launch $link';
         log('_launchUrl is called');
       } catch (e) {
         if (context.mounted) {
@@ -26,7 +27,7 @@ class MoreSettingsBody extends StatelessWidget {
         }
       }
     }
-
+    // make Call Method
     Future<void> makeCall(BuildContext context, String phoneNum) async {
       final Uri phoneUri = Uri(scheme: 'tel', path: phoneNum);
       try {
