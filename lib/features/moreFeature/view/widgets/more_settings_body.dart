@@ -1,3 +1,5 @@
+import 'dart:developer';
+import 'dart:io';
 
 import 'package:awrad/features/moreFeature/view/app_info_details_view.dart';
 import 'package:awrad/features/moreFeature/view/widgets/custom_more_list_tile.dart';
@@ -10,16 +12,36 @@ class MoreSettingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    /*
-    void _launchURL(String url) async {
-      if (await canLaunch(url)) {
-        await launch(url);
-      } else {
-        throw 'Could not launch $url';
+    // launch Url Method
+    Future<void> _launchUrl(BuildContext context, String url) async {
+      try {
+        await canLaunchUrl(Uri.parse(url))
+            ? await launchUrl(Uri.parse(url))
+            : throw 'Could not launch $url';
+        log('_launchUrl is called');
+      } catch (e) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(e.toString())));
+        }
       }
     }
-    */
+
+    Future<void> makeCall(BuildContext context, String phoneNum) async {
+      final Uri phoneUri = Uri(scheme: 'tel', path: phoneNum);
+      try {
+        await canLaunchUrl(phoneUri)
+            ? await launchUrl(phoneUri)
+            : throw 'Could not make a call to this num: $phoneUri';
+        log('makeCall is called');
+
+      } catch (e) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(e.toString())));
+        }
+      }
+    }
 
     return Stack(
       //alignment: Alignment.topCenter,
@@ -82,29 +104,34 @@ class MoreSettingsBody extends StatelessWidget {
               ),
               // Share app
               GestureDetector(
-                onTap:
-                    () async {
-                    //String andrUrl = '';
-                    //String iOsUrl = '';
-                    final result = await Share.share('com.example.awrad');
+                onTap: () async {
+                  String andrUrl = 'https://www.google.com'; //'com.example.awrad';
+                  String iOsUrl = 'App Link';
+                  final result =
+                      await Share.share(Platform.isAndroid ? andrUrl : iOsUrl);
 
-                    if (result.status == ShareResultStatus.success) {
-                      print('Thank you for sharing my website!');
+                  if (result.status == ShareResultStatus.success) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text('Thank you for sharing')));
                     }
                   }
-                ,
+                },
                 child: const CustomMoreListTile(
                     title: 'شارك التطبيق', icon: Icons.share_outlined),
               ),
               // App Rating
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  String url = Platform.isAndroid ? 'AndroidUrl' : 'IosUrl';
+                  _launchUrl(context, url);
+                },
                 child: const CustomMoreListTile(
                     title: 'قيم التطبيق', icon: Icons.star_border_outlined),
               ),
               // contact us
               GestureDetector(
-                onTap: (){},//(){_launchURL('tel:+1234567890');},
+                onTap: ()=> makeCall(context, '+1234567890'), //(){_launchURL('tel:+1234567890');},
                 child: const CustomMoreListTile(
                     title: 'تواصل معانا', icon: Icons.call_rounded),
               ),
