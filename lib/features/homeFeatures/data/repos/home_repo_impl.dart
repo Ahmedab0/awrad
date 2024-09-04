@@ -20,13 +20,15 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<CategoryModel>>> fetchHomeCategories() async {
     try {
-      Map<String, dynamic> extractData = await apiServices.get(endPoint: 'homePage') as Map<String, dynamic>;
+      var extractData = await apiServices.get(endPoint: 'homePage');
+      log('fetchHomeCategoriesssssssssssss');
+
       List<CategoryModel> categories = [];
       for(var category in extractData["data"]["categories"]) {
         categories.add(CategoryModel.fromJson(category));
+        log('extractData = $extractData');
+        log('categories List  = $categories');
       }
-      log('extractData = $extractData');
-      log('categories List  = $categories');
       return right(categories);
     } catch (e) {
       if (e is DioException) {
