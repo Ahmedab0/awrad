@@ -15,7 +15,6 @@ class QiblahCompassView extends StatefulWidget {
 }
 
 class _QiblahCompassViewState extends State<QiblahCompassView> {
-
   final Stream<QiblahDirection> _stream = FlutterQiblah.qiblahStream;
 
   @override
@@ -27,77 +26,80 @@ class _QiblahCompassViewState extends State<QiblahCompassView> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: _stream,
-        builder: (context, snapshot) {
-          if(snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator.adaptive());
-          } else if (snapshot.hasData && snapshot.data == null){
-            return const Center(child: Text('No Data'),);
-          } else if (snapshot.hasError) {
-            return
-              Center(child: Text('Error: ${snapshot.error}'),);
-          } else {
-            final qiblahDirection = snapshot.data;
+      stream: _stream,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator.adaptive());
+        } else if (snapshot.hasData && snapshot.data == null) {
+          return const Center(
+            child: Text('No Data'),
+          );
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text('Error: ${snapshot.error}'),
+          );
+        } else {
+          final qiblahDirection = snapshot.data;
 
-            // north direction
-            print('direction ==> ${qiblahDirection!.direction}');
-            // qibla direction
-            print('qiblah ==> ${qiblahDirection!.qiblah}');
-            // qibla offset from the north
-            print('offset ==> ${qiblahDirection!.offset}');
+          // north direction
+          print('direction ==> ${qiblahDirection!.direction}');
+          // qibla direction
+          print('qiblah ==> ${qiblahDirection.qiblah}');
+          // qibla offset from the north
+          print('offset ==> ${qiblahDirection.offset}');
 
-            return Stack(
-              alignment: Alignment.center,
-              children: [
-                // Background
-                Image.asset(
-                  'assets/images/morebg.png',
-                  fit: BoxFit.cover,
-                  height: double.infinity,
-                  width: double.infinity,
-                ),
-                // bg vector
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: AspectRatio(
-                    aspectRatio: 350 / 191,
-                    child: Container(
-                      height: 191,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: ExactAssetImage('assets/images/moreVector.png'),
-                        ),
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              // Background
+              Image.asset(
+                'assets/images/morebg.png',
+                fit: BoxFit.cover,
+                height: double.infinity,
+                width: double.infinity,
+              ),
+              // bg vector
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: AspectRatio(
+                  aspectRatio: 350 / 191,
+                  child: Container(
+                    height: 191,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: ExactAssetImage('assets/images/moreVector.png'),
                       ),
                     ),
                   ),
                 ),
-                Positioned(
-                  top: 40,
-                  child: Text(
-                    '${qiblahDirection.qiblah.ceil()}°',
-                    style: AppStyles.bold20(context),
+              ),
+              Positioned(
+                top: 40,
+                child: Text(
+                  '${qiblahDirection.qiblah.ceil()}°',
+                  style: AppStyles.bold20(context),
+                ),
+              ),
+              Positioned(
+                top: 85,
+                child: SizedBox(
+                  height: 61,
+                  child: Image.asset(
+                    'assets/images/mosque.png',
+                    fit: BoxFit.fill,
                   ),
                 ),
-                Positioned(
-                  top: 85,
-                  child: SizedBox(
-                    height: 61,
-                    child: Image.asset(
-                      'assets/images/mosque.png',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
+              ),
+              SizedBox(
+                height: 300,
+                child: Transform.rotate(
+                  angle: (qiblahDirection.qiblah * (pi / 180) * -1),
+                  child: SvgPicture.asset('assets/images/compass.svg'),
                 ),
-                SizedBox(
-                  height: 300,
-                  child: Transform.rotate(
-                    angle: (qiblahDirection.qiblah * (pi / 180) * -1),
-                    child: SvgPicture.asset('assets/images/compass.svg'),
-                  ),
-                ),
+              ),
 
-               /* Transform.rotate(
+              /* Transform.rotate(
                   angle: (qiblahDirection.qiblah * (pi / 180) * -1),
                   alignment: Alignment.center,
                   child: SvgPicture.asset('assets/images/compass/needle.svg',
@@ -106,12 +108,10 @@ class _QiblahCompassViewState extends State<QiblahCompassView> {
                     alignment: Alignment.center,
                   ),
                 ),*/
-              ],
-            );
+            ],
+          );
 
-
-
-            /* Stack(
+          /* Stack(
               children: [
                 // Background
                 Image.asset(
@@ -177,8 +177,8 @@ class _QiblahCompassViewState extends State<QiblahCompassView> {
                 )
               ],
             );*/
-          }
-        },);
+        }
+      },
+    );
   }
 }
-

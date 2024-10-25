@@ -13,7 +13,7 @@ class CustomBottomAppBar extends StatelessWidget {
     required this.onItemTapped,
   });
 
-   final List<NavBarItemModel> navItems =  const [
+  final List<NavBarItemModel> navItems = const [
     NavBarItemModel(icon: Icons.nights_stay, label: 'أذكار المساء'),
     NavBarItemModel(icon: Icons.wb_sunny, label: 'أذكار الصباح'),
     NavBarItemModel(icon: null, label: 'الرئيسية'),
@@ -57,6 +57,7 @@ class CustomBottomAppBar extends StatelessWidget {
       ),
     );
   }
+
   // buildNavBarItem method
   Widget buildNavBarItem(int index) {
     return Expanded(

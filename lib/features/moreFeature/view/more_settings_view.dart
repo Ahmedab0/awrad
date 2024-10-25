@@ -2,7 +2,7 @@ import 'package:awrad/core/utils/app_styles.dart';
 import 'package:awrad/features/moreFeature/view/widgets/more_settings_body.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/customWidgets/circle_arrow_back.dart';
+import '../../../core/custom_widgets/circle_arrow_back.dart';
 import '../../bottomNavBarFeatures/views/custom_bottom_navigation_bar.dart';
 
 class MoreSettings extends StatelessWidget {
@@ -23,7 +23,8 @@ class MoreSettings extends StatelessWidget {
                 onTap: () => Navigator.of(context)
                     .pushReplacementNamed(CustomBottomNavigationBar.routeNamed),
                 child: const CircleArrowBack(
-                  clr: Colors.white, iconSize: 16,
+                  clr: Colors.white,
+                  iconSize: 16,
                 ),
               ),
             ),
@@ -39,6 +40,3 @@ class MoreSettings extends StatelessWidget {
     );
   }
 }
-
-
-

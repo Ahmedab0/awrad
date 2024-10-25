@@ -1,23 +1,19 @@
-import 'package:awrad/core/customWidgets/custom_failure_state.dart';
-import 'package:awrad/core/customWidgets/custom_loading_indicator.dart';
-import 'package:awrad/core/utils/api_services.dart';
-import 'package:awrad/features/moreFeature/data/repos/settings_repo_impl.dart';
-import 'package:awrad/features/moreFeature/logic/about_app_cubit/about_app_cubit.dart';
+import 'package:awrad/core/utils/service_locator.dart';
 import 'package:awrad/features/moreFeature/view/more_settings_view.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/customWidgets/circle_arrow_back.dart';
+import '../../../core/custom_widgets/circle_arrow_back.dart';
+import '../../../core/custom_widgets/custom_failure_state.dart';
+import '../../../core/custom_widgets/custom_loading_indicator.dart';
 import '../../../core/utils/app_styles.dart';
+import '../data/repos/app_info_repo_impl.dart';
+import '../logic/app_info_cubit/app_info_cubit.dart';
 
 class AppInfoDetailsView extends StatelessWidget {
   static const String routeNamed = 'AppInfoDetailsView';
 
   const AppInfoDetailsView({super.key});
-
-  final String loremTxt =
-      'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص';
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +21,7 @@ class AppInfoDetailsView extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: BlocProvider(
         create: (context) =>
-            AboutAppCubit(SettingsRepoImpl(ApiServices(Dio())))..fetchAppInfo(),
+            AppInfoCubit(getIt.get<AppInfoRepoImpl>())..fetchAppInfo(),
         child: Scaffold(
           appBar: AppBar(
             actions: [
@@ -63,21 +59,21 @@ class AppInfoDetailsView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  //Text('تطبيق أوراد', style: AppStyles.bold10(context).copyWith(fontSize: 12, color: const Color(0xff242424))),
                   const SizedBox(height: 12),
-                  BlocBuilder<AboutAppCubit, AboutAppState>(
+                  BlocBuilder<AppInfoCubit, AppInfoState>(
                     builder: (context, state) {
-                      if (state is AboutAppSuccessState) {
+                      if (state is AppInfoSuccessState) {
+                        Map<String, dynamic> exData = state.info;
                         return Text(
-                          state.aboutAppModel.data?.content ?? '',
+                          exData["data"]['content'] ?? '',
                           style: AppStyles.regular11(context),
                           textAlign: TextAlign.justify,
                         );
-                      } else if (state is AboutAppFailureState) {
+                      } else if (state is AppInfoFailureState) {
                         return CustomFailureState(
-                            errorText: state.errorMessage,
+                            //errorText: state.errorMessage,
                             onPressed: () {
-                              BlocProvider.of<AboutAppCubit>(context)
+                              BlocProvider.of<AppInfoCubit>(context)
                                   .fetchAppInfo();
                             });
                       } else {

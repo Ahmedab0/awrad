@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class NavBarItemModel {
@@ -6,5 +5,4 @@ class NavBarItemModel {
   final String label;
 
   const NavBarItemModel({required this.icon, required this.label});
-
 }

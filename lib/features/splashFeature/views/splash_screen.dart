@@ -29,7 +29,8 @@ class _SplashScreenState extends State<SplashScreen>
 
     // Define the scale animation
     _scaleAnimation =
-        Tween<double>(begin: 0.8, end: 1.0).animate(CurvedAnimation(parent: _controller,
+        Tween<double>(begin: 0.8, end: 1.0).animate(CurvedAnimation(
+      parent: _controller,
       curve: const Interval(0.2, 1.0, curve: Curves.elasticOut),
     ));
 
@@ -39,8 +40,8 @@ class _SplashScreenState extends State<SplashScreen>
     // Navigate to the next screen after the animation is done
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-
-        Navigator.pushReplacementNamed(context, CustomBottomNavigationBar.routeNamed);
+        Navigator.pushReplacementNamed(
+            context, CustomBottomNavigationBar.routeNamed);
       }
     });
     //Future.delayed(const Duration(seconds: 4),() => Navigator.pushReplacementNamed(context, HomePage.routeNamed));

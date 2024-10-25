@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 abstract class AppStyles {
-
   static Color primaryClr = const Color(0xff13A090);
   static Color darkGreyClr = const Color(0xff94A3B8);
   static Color darkRedClr = const Color(0xffB40000);
   static Color blackClr = const Color(0xff000000);
-
-
 
   // NotoKufiArabic
   /// regular10
@@ -30,7 +26,8 @@ abstract class AppStyles {
       fontWeight: FontWeight.w400,
     );
   }
- /// regular13
+
+  /// regular13
   static TextStyle regular13(BuildContext context) {
     return TextStyle(
       color: blackClr,
@@ -101,6 +98,7 @@ abstract class AppStyles {
       fontWeight: FontWeight.w500,
     );
   }
+
   /// traditionalRegular19
   static TextStyle traditionalRegular19(BuildContext context) {
     return TextStyle(
@@ -110,6 +108,7 @@ abstract class AppStyles {
       fontWeight: FontWeight.w400,
     );
   }
+
   /// medium12
   static TextStyle traditionalMedium12(BuildContext context) {
     return TextStyle(
@@ -150,9 +149,7 @@ abstract class AppStyles {
       fontWeight: FontWeight.w700,
     );
   }
-
 } // AppStyles
-
 
 /// Responsive FontSize
 double getResponsiveFontSize(BuildContext context,
@@ -174,7 +171,7 @@ double getScaleFactor(BuildContext context) {
 
   if (width < 800) {
     // Mobile Platform w 400
-    return width / 350 ;//550
+    return width / 350; //550
   } else if (width < 1200) {
     // Tablet Platform w 700
     return width / 1000;

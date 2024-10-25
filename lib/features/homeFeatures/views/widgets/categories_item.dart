@@ -2,14 +2,13 @@ import 'package:awrad/core/utils/app_styles.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/customWidgets/circle_arrow_back.dart';
+import '../../../../core/custom_widgets/circle_arrow_back.dart';
 import '../../data/models/category_model.dart';
 
 class CategoryItem extends StatelessWidget {
+  final CategoryModel categoryModel;
 
-  final CategoryModel categoryModel ;
-
-  const CategoryItem({super.key, required this.categoryModel,  });
+  const CategoryItem({super.key, required this.categoryModel});
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +28,26 @@ class CategoryItem extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(6),
                   child: CachedNetworkImage(
-                    imageUrl: categoryModel.image ?? "https://i0.wp.com/ourscene.org/wp-content/uploads/2022/01/placeholder-2.png?fit=1200%2C800&ssl=1",
+                    imageUrl: categoryModel.image ??
+                        "https://i0.wp.com/ourscene.org/wp-content/uploads/2022/01/placeholder-2.png?fit=1200%2C800&ssl=1", // if cateImg is null
                     fit: BoxFit.fill,
-                    placeholder: (context, url) => Image.asset('assets/images/splashLogo.png',fit: BoxFit.fill,),//const Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => Center(child: Image.asset('assets/images/noData.png',fit: BoxFit.fill,)),//Icon(Icons.error),
+                    placeholder: (context, url) => Image.asset(
+                      'assets/images/splashLogo.png',
+                      fit: BoxFit.fill,
+                    ), //const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => Center(
+                        child: Image.asset(
+                      'assets/images/noData.png',
+                      fit: BoxFit.fill,
+                    )), //Icon(Icons.error),
                   ),
                 ),
-              /*  Container(
+                /*Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
                       image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage(categoryModel.image ),
+                        image: AssetImage(categoryModel.image ?? 'assets/images/noData.png'),
                       )),
                 ),*/
               ),
@@ -68,9 +75,9 @@ class CategoryItem extends StatelessWidget {
             ),
             // arrow icon
             const CircleArrowBack(
-                    clr: Color(0xff838BA5),
-                    iconSize: 12,
-                  ),
+              clr: Color(0xff838BA5),
+              iconSize: 12,
+            ),
           ],
         ),
       ),

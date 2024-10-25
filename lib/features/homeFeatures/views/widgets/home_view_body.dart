@@ -1,4 +1,3 @@
-
 import 'package:awrad/features/homeFeatures/views/widgets/home_cover.dart';
 import 'package:awrad/features/homeFeatures/views/widgets/category_list_view.dart';
 import 'package:flutter/material.dart';

@@ -13,7 +13,7 @@ class MoreSettingsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // launch Url Method
-    Future<void> _launchUrl(BuildContext context, String url) async {
+    Future<void> launch(BuildContext context, String url) async {
       final Uri link = Uri(scheme: 'https', path: url);
       try {
         await canLaunchUrl(link)
@@ -27,6 +27,7 @@ class MoreSettingsBody extends StatelessWidget {
         }
       }
     }
+
     // make Call Method
     Future<void> makeCall(BuildContext context, String phoneNum) async {
       final Uri phoneUri = Uri(scheme: 'tel', path: phoneNum);
@@ -35,7 +36,6 @@ class MoreSettingsBody extends StatelessWidget {
             ? await launchUrl(phoneUri)
             : throw 'Could not make a call to this num: $phoneUri';
         log('makeCall is called');
-
       } catch (e) {
         if (context.mounted) {
           ScaffoldMessenger.of(context)
@@ -106,7 +106,8 @@ class MoreSettingsBody extends StatelessWidget {
               // Share app
               GestureDetector(
                 onTap: () async {
-                  String andrUrl = 'https://www.google.com'; //'com.example.awrad';
+                  String andrUrl =
+                      'https://www.google.com'; //'com.example.awrad';
                   String iOsUrl = 'App Link';
                   final result =
                       await Share.share(Platform.isAndroid ? andrUrl : iOsUrl);
@@ -125,14 +126,15 @@ class MoreSettingsBody extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   String url = Platform.isAndroid ? 'AndroidUrl' : 'IosUrl';
-                  _launchUrl(context, url);
+                  launch(context, url);
                 },
                 child: const CustomMoreListTile(
                     title: 'قيم التطبيق', icon: Icons.star_border_outlined),
               ),
               // contact us
               GestureDetector(
-                onTap: ()=> makeCall(context, '+1234567890'), //(){_launchURL('tel:+1234567890');},
+                onTap: () => makeCall(context,
+                    '+1234567890'), //(){_launchURL('tel:+1234567890');},
                 child: const CustomMoreListTile(
                     title: 'تواصل معانا', icon: Icons.call_rounded),
               ),
