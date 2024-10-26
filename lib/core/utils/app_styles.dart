@@ -14,6 +14,7 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 10),
       fontFamily: 'NotoKufiArabic',
       fontWeight: FontWeight.w400,
+      letterSpacing: 0.0
     );
   }
 
@@ -24,6 +25,7 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 11),
       fontFamily: 'NotoKufiArabic',
       fontWeight: FontWeight.w400,
+        letterSpacing: 0.0
     );
   }
 
@@ -44,6 +46,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 19),
       fontFamily: 'NotoKufiArabic',
       fontWeight: FontWeight.w400,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -54,6 +58,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 10),
       fontFamily: 'NotoKufiArabic',
       fontWeight: FontWeight.w700,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -64,6 +70,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 14),
       fontFamily: 'NotoKufiArabic',
       fontWeight: FontWeight.w700,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -74,6 +82,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 20),
       fontFamily: 'NotoKufiArabic',
       fontWeight: FontWeight.w700,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -85,6 +95,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 12),
       fontFamily: 'Poppins',
       fontWeight: FontWeight.w500,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -96,6 +108,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 21),
       fontFamily: 'Traditional-Arabic',
       fontWeight: FontWeight.w500,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -106,6 +120,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 19),
       fontFamily: 'Traditional-Arabic',
       fontWeight: FontWeight.w400,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -116,6 +132,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 12),
       fontFamily: 'Traditional-Arabic',
       fontWeight: FontWeight.w500,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -126,6 +144,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 19),
       fontFamily: 'Poppins',
       fontWeight: FontWeight.w500,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -137,6 +157,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 10),
       fontFamily: 'Alexandria',
       fontWeight: FontWeight.w400,
+        letterSpacing: 0.0
+
     );
   }
 
@@ -147,6 +169,8 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, baseFontSize: 12),
       fontFamily: 'Alexandria',
       fontWeight: FontWeight.w700,
+        letterSpacing: 0.0
+
     );
   }
 } // AppStyles

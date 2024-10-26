@@ -2,7 +2,7 @@
 import 'package:uuid/uuid.dart';
 
 class Constant {
-  var uuid = const Uuid().v1();
+  var uuid = const Uuid().v4();
 
   final String baseUrl = 'https://awradapp.com/api/';
   final String homePage = "homePage";

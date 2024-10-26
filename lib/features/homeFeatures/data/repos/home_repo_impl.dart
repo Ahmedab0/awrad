@@ -8,9 +8,9 @@ import 'package:awrad/features/homeFeatures/data/models/category_model.dart';
 import 'package:awrad/features/homeFeatures/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:uuid/uuid.dart';
 
 import '../../../../core/utils/api_services.dart';
+import '../../../../core/utils/shared_pref_helper.dart';
 import '../models/toggle_fav_response.dart';
 
 class HomeRepoImpl implements HomeRepo {
@@ -19,9 +19,6 @@ class HomeRepoImpl implements HomeRepo {
   HomeRepoImpl(this.apiServices);
 
   final Constant _const = Constant();
-  var uuid = const Uuid().v1();
-
-
 
 
   // get Categories implementation
@@ -68,9 +65,10 @@ class HomeRepoImpl implements HomeRepo {
   // get Categories Azkar Items implementation
   @override
   Future<Either<Failure, List<CategoryAzkarModel>>> fetchCategoriesAzkar(categoryId) async {
+    var uniqueId = await getOrCreateUuid();
     try {
       var response =
-          await apiServices.post(endPoint: _const.categoryAzkar, body: {"category_id": categoryId, "uuid": _const.uuid});
+          await apiServices.post(endPoint: _const.categoryAzkar, body: {"category_id": categoryId, "uuid": uniqueId});
       List<CategoryAzkarModel> items = [];
       var extractData = response["data"];
       for (var item in extractData) {
@@ -90,8 +88,9 @@ class HomeRepoImpl implements HomeRepo {
   // Toggle Favorite implementation
   @override
   Future<Either<Failure, Map<String, dynamic>>> toggleFavorite(int azkarId) async{
+    var uniqueId = await getOrCreateUuid();
     try {
-      Map<String, dynamic> extractData =  await apiServices.post(endPoint: _const.toggleFav, body: {"azkar_id": azkarId, "uuid": _const.uuid});
+      Map<String, dynamic> extractData =  await apiServices.post(endPoint: _const.toggleFav, body: {"azkar_id": azkarId, "uuid": uniqueId});
       log('response: $extractData');
       ToggleFavResponse.fromJson(extractData);
       return right(extractData);

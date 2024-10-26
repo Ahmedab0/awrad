@@ -11,7 +11,7 @@ class ApiServices {
 
 
   // get Method
-  Future get({required String endPoint}) async {
+  Future get({required String endPoint, Map<String, dynamic>? queryParams}) async {
     //saveToken('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2F3cmFkYXBwLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE3Mjc4OTc5NTMsImV4cCI6MTcyNzkwMTU1MywibmJmIjoxNzI3ODk3OTUzLCJqdGkiOiI4ZUpqTnZNb1hoOEJPZ0tUIiwic3ViIjoiMSIsInBydiI6IjQxZWZiN2JhZDdmNmY2MzJlMjQwNWJkM2E3OTNiOGE2YmRlYzY3NzcifQ.TEtgUKUyYKdRyXeYfRf3AR_OcvpYc3C18QFzAZ2t9oc');
 
     // Retrieve the token from secure storage
@@ -27,6 +27,7 @@ class ApiServices {
     try {
       final Response response = await _dio.get(
         '${_const.baseUrl}$endPoint',
+        queryParameters: queryParams,
         //options: Options(headers: headers),
       );
       if (response.statusCode == 200 && response.data['key'] == 'success') {
